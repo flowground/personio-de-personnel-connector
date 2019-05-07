@@ -1,0 +1,15 @@
+{
+    "name": "personio-de-personnel-connector",
+    "version": "1.0.0",
+    "description": "API for reading and writing personnel data incl. data about attendances and absences",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}

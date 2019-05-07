@@ -1,0 +1,208 @@
+{
+    "title": "Personnel Data",
+    "description": "API for reading and writing personnel data incl. data about attendances and absences",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/personio.de/personnel/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.personio.de/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth": {
+                "label": "Authorization (auth)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_company_attendances": {
+            "main": "./lib/actions/get_company_attendances.js",
+            "title": "This endpoint is responsible for fetching attendance data for the company employees. It is possible to paginate results, filter by period and/or specific employees. The result will contain a list of attendance periods, structured as defined here.",
+            "description": "This endpoint is responsible for fetching attendance data for the company employees. It is possible to paginate results, filter by period and/or specific employees. The result will contain a list of attendance periods, structured as defined here.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_company_attendances.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_company_attendances": {
+            "main": "./lib/actions/post_company_attendances.js",
+            "title": "This endpoint is responsible for adding attendance data for the company employees. It is possible to add attendances for one or many employees at the same time. The payload sent on the request should be a list of attendance periods, in the form of an array containing attendance period objects.",
+            "description": "This endpoint is responsible for adding attendance data for the company employees. It is possible to add attendances for one or many employees at the same time. The payload sent on the request should be a list of attendance periods, in the form of an array containing attendance period objects.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_company_attendances.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_company_attendances__id_": {
+            "main": "./lib/actions/delete_company_attendances__id_.js",
+            "title": "This endpoint is responsible for deleting attendance data for the company employees.",
+            "description": "This endpoint is responsible for deleting attendance data for the company employees.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_company_attendances__id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_company_employees": {
+            "main": "./lib/actions/get_company_employees.js",
+            "title": "List Employees",
+            "description": "List Employees",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_company_employees.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_company_employees__employee_id_": {
+            "main": "./lib/actions/get_company_employees__employee_id_.js",
+            "title": "Employee",
+            "description": "Employee",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_company_employees__employee_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_company_time_off_types": {
+            "main": "./lib/actions/get_company_time_off_types.js",
+            "title": "Provides a list of available time-off types, for example 'Paid vacation', 'Parental leave' or 'Home office'",
+            "description": "Provides a list of available time-off types, for example 'Paid vacation', 'Parental leave' or 'Home office'",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_company_time_off_types.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_company_time_offs": {
+            "main": "./lib/actions/get_company_time_offs.js",
+            "title": "This endpoint is responsible for fetching absence data for the company employees. It is possible to paginate results, filter by period and/or specific employees. The result will contain a list of absence periods, structured as defined here.",
+            "description": "This endpoint is responsible for fetching absence data for the company employees. It is possible to paginate results, filter by period and/or specific employees. The result will contain a list of absence periods, structured as defined here.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_company_time_offs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_company_time_offs": {
+            "main": "./lib/actions/post_company_time_offs.js",
+            "title": "This endpoint is responsible for adding absence data for the company employees.",
+            "description": "This endpoint is responsible for adding absence data for the company employees.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_company_time_offs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_company_time_offs__id_": {
+            "main": "./lib/actions/delete_company_time_offs__id_.js",
+            "title": "This endpoint is responsible for deleting absence period data for the company employees.",
+            "description": "This endpoint is responsible for deleting absence period data for the company employees.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_company_time_offs__id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_company_time_offs__id_": {
+            "main": "./lib/actions/get_company_time_offs__id_.js",
+            "title": "Absence Period",
+            "description": "Absence Period",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_company_time_offs__id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

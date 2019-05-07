@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "example": {
+                "attendances": [
+                    {
+                        "break": 120,
+                        "date": "2017-01-18",
+                        "employee": 1234,
+                        "end_time": "18:00",
+                        "start_time": "8:00"
+                    },
+                    {
+                        "break": 35,
+                        "comment": "I was productive as hell",
+                        "date": "2017-01-17",
+                        "employee": 1235,
+                        "end_time": "12:00",
+                        "start_time": "9:00"
+                    }
+                ]
+            },
+            "properties": {
+                "attendances": {
+                    "items": {
+                        "properties": {
+                            "break": {
+                                "description": "Break in minutes",
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "comment": {
+                                "description": "Optional comment",
+                                "type": "string"
+                            },
+                            "date": {
+                                "description": "Attendance date as YYYY-MM-DD",
+                                "format": "date",
+                                "type": "string"
+                            },
+                            "employee": {
+                                "description": "Employee identifier",
+                                "type": "integer"
+                            },
+                            "end_time": {
+                                "description": "End time as HH:MM",
+                                "pattern": "^\\d\\d:\\d\\d$",
+                                "type": "string"
+                            },
+                            "start_time": {
+                                "description": "Start time as HH:MM",
+                                "pattern": "^\\d\\d:\\d\\d$",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "employee",
+                            "date",
+                            "start_time",
+                            "end_time",
+                            "break",
+                            "comment"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "Create a New Attendance Period request",
+            "type": "object"
+        }
+    }
+}
